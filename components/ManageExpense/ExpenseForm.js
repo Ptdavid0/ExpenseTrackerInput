@@ -26,7 +26,7 @@ const ExpenseForm = ({
     },
   });
 
-  const submitHandler = () => {
+  const submitHandler = async () => {
     const expenseData = {
       amount: +inputs.amount.value, // Transform string to number
       description: inputs.description.value,
@@ -34,7 +34,7 @@ const ExpenseForm = ({
     };
     const isValid = validateExpense(expenseData);
     if (isValid) {
-      onSubmit(expenseData);
+      await onSubmit(expenseData);
       cleanState();
     }
   };
